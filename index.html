@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#070912" />
+    <meta
+      name="description"
+      content="PokéDex Mini — a fast, neon-styled Pokédex built with React, Vite and the PokéAPI. Search all 1,302 Pokémon, filter by type, compare base stats, explore evolutions and build a dream team."
+    />
+
+    <title>PokéDex Mini · React + PokéAPI</title>
+
+    <!-- Inline SVG Pokéball favicon: no extra request, scales to any size. -->
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23fff' stroke='%230a0c18' stroke-width='5'/%3E%3Cpath d='M4 32h56a28 28 0 0 0-56 0z' fill='%23ff3b5c'/%3E%3Cpath d='M2 32h60' stroke='%230a0c18' stroke-width='5'/%3E%3Ccircle cx='32' cy='32' r='11' fill='%23fff' stroke='%230a0c18' stroke-width='5'/%3E%3Ccircle cx='32' cy='32' r='5' fill='%230a0c18'/%3E%3C/svg%3E"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://pokeapi.co" />
+    <link rel="dns-prefetch" href="https://raw.githubusercontent.com" />
+
+    <script>
+      // Apply the saved theme before first paint so there is no flash.
+      (function () {
+        try {
+          var stored = localStorage.getItem("pokedex-mini:theme");
+          if (stored !== "light" && stored !== "dark") {
+            stored = window.matchMedia("(prefers-color-scheme: light)").matches
+              ? "light"
+              : "dark";
+          }
+          document.documentElement.setAttribute("data-theme", stored);
+        } catch (error) {
+          document.documentElement.setAttribute("data-theme", "dark");
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      PokéDex Mini needs JavaScript enabled — it reads live data straight from
+      the PokéAPI in your browser.
+    </noscript>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
